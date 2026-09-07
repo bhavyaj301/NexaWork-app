@@ -77,19 +77,19 @@ export const LandingPage: React.FC<LandingPageProps> = ({
         <div className="page-col flex flex-col items-center text-center relative z-10">
 
           {/* Shimmering Animated Headline with Glowing Aurora Aura Background */}
-          <h1 className="text-3xl sm:text-5xl lg:text-[3.6rem] font-extrabold text-[var(--text-primary)] tracking-tight leading-tight max-w-4xl mx-auto mb-4 drop-shadow-md relative">
-            <span className="relative z-10">Predictive Job Market Intelligence</span>
+          <h1 className="text-3xl sm:text-5xl lg:text-[3.6rem] font-extrabold text-[var(--text-primary)] tracking-tight leading-tight max-w-4xl mx-auto mb-4 drop-shadow-lg relative">
+            <span className="relative z-10 text-white drop-shadow-md">Predictive Job Market Intelligence</span>
             <br />
-            <span className="relative z-10">for the </span>
+            <span className="relative z-10 text-white/90">for the </span>
             <span className="text-aurora-glow relative z-10">
-              <span className="animate-text-shimmer drop-shadow-xl font-black">
+              <span className="animate-text-shimmer drop-shadow-2xl font-black">
                 Modern Tech Era
               </span>
             </span>
           </h1>
 
           {/* Subheading */}
-          <p className="text-sm sm:text-base text-[var(--text-secondary)] max-w-xl mx-auto leading-relaxed mb-8">
+          <p className="text-sm sm:text-base text-slate-200 dark:text-slate-200 font-medium max-w-xl mx-auto leading-relaxed mb-8 drop-shadow-sm">
             Analyze 2.48M+ verified technology job postings in real-time. Benchmark compensation,
             diagnose resume skill gaps, and generate customized 12-week career pathways with NexaWork AI.
           </p>
@@ -98,17 +98,17 @@ export const LandingPage: React.FC<LandingPageProps> = ({
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 w-full sm:w-auto mb-12">
             <button
               onClick={() => onLaunchService('overview')}
-              className="azure-btn-primary px-7 py-3 text-xs sm:text-sm font-bold flex items-center justify-center gap-2.5 w-full sm:w-auto shadow-xl shadow-blue-600/35 hover:scale-105 active:scale-95 transition-all"
+              className="azure-btn-primary px-7 py-3 text-xs sm:text-sm font-bold flex items-center justify-center gap-2.5 w-full sm:w-auto shadow-xl shadow-blue-600/40 hover:scale-105 active:scale-95 transition-all text-white"
             >
               <span>Launch Free Market Analyzer</span>
               <ArrowRight className="w-4 h-4" />
             </button>
             <button
               onClick={() => onLaunchService('resume-analyzer')}
-              className="azure-btn-secondary px-7 py-3 text-xs sm:text-sm font-bold flex items-center justify-center gap-2.5 w-full sm:w-auto hover:scale-105 active:scale-95 transition-all backdrop-blur-md"
+              className="azure-btn-secondary px-7 py-3 text-xs sm:text-sm font-bold flex items-center justify-center gap-2.5 w-full sm:w-auto hover:scale-105 active:scale-95 transition-all backdrop-blur-md text-white border-slate-700 bg-slate-900/80 hover:bg-slate-800"
             >
               <BookOpen className="w-4 h-4 text-emerald-400" />
-              <span>AI Resume Analyzer & Matcher</span>
+              <span className="text-white font-semibold">AI Resume Analyzer & Matcher</span>
             </button>
           </div>
 
@@ -127,17 +127,17 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                   <div className="w-2.5 h-2.5 rounded-full bg-rose-500/80 animate-pulse" />
                   <div className="w-2.5 h-2.5 rounded-full bg-amber-500/80 animate-pulse" style={{ animationDelay: '0.2s' }} />
                   <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/80 animate-pulse" style={{ animationDelay: '0.4s' }} />
-                  <span className="text-xs text-[var(--text-muted)] font-mono ml-2 font-medium">nexawork.app/live-preview</span>
+                  <span className="text-xs text-slate-400 font-mono ml-2 font-medium">nexawork.app/live-preview</span>
                 </div>
-                <div className="flex items-center gap-1 bg-[var(--bg-surface-subtle)] p-1 rounded-xl border border-[var(--border-color)] text-xs font-bold">
+                <div className="flex items-center gap-1 bg-slate-900/90 p-1 rounded-xl border border-slate-700 text-xs font-bold">
                   {(['trends', 'gap', 'salary', 'jobs'] as const).map((tab, i) => (
                     <button
                       key={tab}
                       onClick={() => setMockupTab(tab)}
-                      className={`px-3 py-1 rounded-lg transition-all text-xs ${
+                      className={`px-3 py-1 rounded-lg transition-all text-xs font-bold ${
                         mockupTab === tab
                           ? 'bg-blue-600 text-white shadow-md'
-                          : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+                          : 'text-slate-300 hover:text-white'
                       }`}
                     >
                       {['📈 Trends', '🎯 Resume AI', '💰 Salary', '💼 Jobs'][i]}
@@ -150,12 +150,12 @@ export const LandingPage: React.FC<LandingPageProps> = ({
               {mockupTab === 'trends' && (
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   {[
-                    { label: 'GenAI Surge', value: '+184% YoY', sub: 'OpenAI & Semantic Models', vc: 'text-[var(--text-primary)]', sc: 'text-sky-400' },
-                    { label: 'Avg Cloud Base', value: '$178,500', sub: '+9.2% above general tech', vc: 'text-emerald-400', sc: 'text-emerald-400/90' },
-                    { label: 'Remote Share', value: '82.6%', sub: '44% Hybrid · 38% Full Remote', vc: 'text-purple-400', sc: 'text-purple-400/90' },
+                    { label: 'GenAI Surge', value: '+184% YoY', sub: 'OpenAI & Semantic Models', vc: 'text-white', sc: 'text-sky-300' },
+                    { label: 'Avg Cloud Base', value: '$178,500', sub: '+9.2% above general tech', vc: 'text-emerald-400', sc: 'text-emerald-300' },
+                    { label: 'Remote Share', value: '82.6%', sub: '44% Hybrid · 38% Full Remote', vc: 'text-purple-300', sc: 'text-purple-300' },
                   ].map(s => (
                     <div key={s.label} className="p-4 sm:p-5 rounded-xl bg-[var(--bg-surface-subtle)] border border-[var(--border-color)] text-center flex flex-col justify-center gap-1.5 hover:border-blue-500/40 hover:scale-[1.02] transition-all">
-                      <span className="text-[11px] text-[var(--text-muted)] font-bold uppercase tracking-wider">{s.label}</span>
+                      <span className="text-[11px] text-slate-300 font-bold uppercase tracking-wider">{s.label}</span>
                       <span className={`text-xl sm:text-2xl font-extrabold font-mono ${s.vc}`}>{s.value}</span>
                       <span className={`text-xs font-bold leading-normal ${s.sc}`}>{s.sub}</span>
                     </div>
