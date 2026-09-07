@@ -2,54 +2,69 @@
 
 @layer base {
   :root {
-    /* ── Light Mode Tokens (Crisp High-Contrast) ────────── */
-    --bg-main: #f8fafc;
+    /* ── Light Mode Tokens (Clean, Crisp, High-Contrast Onyx on Pure White) ── */
+    --bg-main: #f1f5f9;
     --bg-surface: #ffffff;
-    --bg-surface-subtle: #f1f5f9;
-    --bg-surface-hover: #e2e8f0;
+    --bg-surface-subtle: #e2e8f0;
+    --bg-surface-hover: #cbd5e1;
     --border-color: #cbd5e1;
     --border-hover: #94a3b8;
-    --text-primary: #090d16;
-    --text-secondary: #334155;
-    --text-muted: #64748b;
+    --text-primary: #020617; /* Deep pitch onyx for 100% crystal clear readability */
+    --text-secondary: #1e293b; /* Dark slate for subheadings & body */
+    --text-muted: #475569; /* Slate for labels */
     --azure-blue: #0078d4;
-    --azure-glow: rgba(0, 120, 212, 0.16);
-    --azure-glass: rgba(255, 255, 255, 0.92);
+    --azure-glow: rgba(0, 120, 212, 0.18);
+    --azure-glass: rgba(255, 255, 255, 0.95);
     --card-gradient: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(241, 245, 249, 1) 100%);
+    --badge-bg: rgba(0, 120, 212, 0.12);
+    --badge-text: #0369a1;
+    --badge-border: rgba(3, 105, 161, 0.35);
+    --code-box-bg: #e2e8f0;
+    --mockup-bg: #ffffff;
   }
 
   [data-theme="dark"] {
-    /* ── Dark Mode Tokens (Ultra High-Contrast Slate) ───── */
-    --bg-main: #070a12;
-    --bg-surface: #0f172a;
-    --bg-surface-subtle: #1e293b;
-    --bg-surface-hover: #334155;
-    --border-color: #334155;
-    --border-hover: #475569;
+    /* ── Dark Mode Tokens (Deep Oceanic Charcoal & Cyan/Sky Accents) ── */
+    --bg-main: #0b1120;
+    --bg-surface: #131d31;
+    --bg-surface-subtle: #1e2c4a;
+    --bg-surface-hover: #293b61;
+    --border-color: #233454;
+    --border-hover: #3b527e;
     --text-primary: #ffffff;
-    --text-secondary: #cbd5e1;
+    --text-secondary: #e2e8f0;
     --text-muted: #94a3b8;
-    --azure-blue: #0078d4;
-    --azure-glow: rgba(0, 120, 212, 0.35);
-    --azure-glass: rgba(15, 23, 42, 0.9);
-    --card-gradient: linear-gradient(180deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.95) 100%);
+    --azure-blue: #0284c7;
+    --azure-glow: rgba(2, 132, 199, 0.35);
+    --azure-glass: rgba(19, 29, 49, 0.92);
+    --card-gradient: linear-gradient(180deg, rgba(25, 38, 65, 0.7) 0%, rgba(15, 23, 42, 0.95) 100%);
+    --badge-bg: rgba(56, 189, 248, 0.15);
+    --badge-text: #38bdf8;
+    --badge-border: rgba(56, 189, 248, 0.35);
+    --code-box-bg: #0f172a;
+    --mockup-bg: #131d31;
   }
 
   [data-theme="midnight"] {
-    /* ── Midnight Mode Tokens (Pitch Black & Electric Indigo) ── */
-    --bg-main: #020617;
-    --bg-surface: #0b0f1d;
-    --bg-surface-subtle: #1e1b4b;
-    --bg-surface-hover: #312e81;
-    --border-color: #312e81;
-    --border-hover: #4338ca;
+    /* ── Midnight Mode Tokens (Pitch OLED Black & Electric Neon Indigo/Purple Accents) ── */
+    --bg-main: #000000;
+    --bg-surface: #0a0618;
+    --bg-surface-subtle: #160d33;
+    --bg-surface-hover: #261654;
+    --border-color: #2d1864;
+    --border-hover: #4c289e;
     --text-primary: #ffffff;
-    --text-secondary: #c7d2fe;
+    --text-secondary: #e0e7ff;
     --text-muted: #a5b4fc;
-    --azure-blue: #4f46e5;
-    --azure-glow: rgba(99, 102, 241, 0.38);
-    --azure-glass: rgba(11, 15, 29, 0.92);
-    --card-gradient: linear-gradient(180deg, rgba(30, 27, 75, 0.6) 0%, rgba(11, 15, 29, 0.95) 100%);
+    --azure-blue: #6366f1;
+    --azure-glow: rgba(99, 102, 241, 0.45);
+    --azure-glass: rgba(10, 6, 24, 0.95);
+    --card-gradient: linear-gradient(180deg, rgba(28, 15, 68, 0.7) 0%, rgba(10, 6, 24, 0.98) 100%);
+    --badge-bg: rgba(168, 85, 247, 0.18);
+    --badge-text: #c084fc;
+    --badge-border: rgba(192, 132, 252, 0.4);
+    --code-box-bg: #030014;
+    --mockup-bg: #0a0618;
   }
 }
 
@@ -111,7 +126,7 @@ code, pre, .font-mono {
   background-image: var(--card-gradient);
   border: 1px solid var(--border-color);
   border-radius: 1.25rem;
-  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.18);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
 }
@@ -129,10 +144,10 @@ code, pre, .font-mono {
 }
 
 .saas-hero-mockup {
-  background: var(--bg-surface);
+  background: var(--mockup-bg);
   border: 1px solid var(--border-color);
   border-radius: 1.5rem;
-  box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.08);
 }
 
 .azure-glass {
@@ -152,15 +167,14 @@ code, pre, .font-mono {
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  background-color: rgba(0, 120, 212, 0.15);
-  color: #38bdf8;
-  border: 1px solid rgba(56, 189, 248, 0.35);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  background-color: var(--badge-bg);
+  color: var(--badge-text);
+  border: 1px solid var(--badge-border);
 }
 
 .azure-btn-primary {
   background: linear-gradient(135deg, #0078d4 0%, #005a9e 100%);
-  color: #ffffff;
+  color: #ffffff !important;
   font-weight: 700;
   border-radius: 0.75rem;
   transition: all 0.2s ease;
@@ -276,7 +290,7 @@ code, pre, .font-mono {
    TEXT BACKGROUND ANIMATIONS & GLOW EFFECTS (HIGH VISIBILITY)
    ═════════════════════════════════════════════════════════════════════ */
 
-/* Shimmering Animated Text Gradient with Crisp Glow & Contrast */
+/* Shimmering Animated Text Gradient */
 @keyframes textShimmer {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -286,11 +300,11 @@ code, pre, .font-mono {
 .animate-text-shimmer {
   background: linear-gradient(
     90deg,
-    #38bdf8 0%,
-    #818cf8 25%,
-    #c084fc 50%,
-    #ec4899 75%,
-    #38bdf8 100%
+    #0284c7 0%,
+    #6366f1 25%,
+    #9333ea 50%,
+    #db2777 75%,
+    #0284c7 100%
   );
   background-size: 200% auto;
   color: transparent;
@@ -299,17 +313,46 @@ code, pre, .font-mono {
   animation: textShimmer 4s ease-in-out infinite;
   display: inline-block;
   font-weight: 900;
+}
+
+[data-theme="dark"] .animate-text-shimmer {
+  background: linear-gradient(
+    90deg,
+    #38bdf8 0%,
+    #818cf8 25%,
+    #c084fc 50%,
+    #ec4899 75%,
+    #38bdf8 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
   filter: drop-shadow(0 2px 10px rgba(56, 189, 248, 0.45));
+}
+
+[data-theme="midnight"] .animate-text-shimmer {
+  background: linear-gradient(
+    90deg,
+    #a855f7 0%,
+    #818cf8 25%,
+    #c084fc 50%,
+    #f43f5e 75%,
+    #a855f7 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: drop-shadow(0 2px 14px rgba(168, 85, 247, 0.6));
 }
 
 /* Ambient Moving Aurora Aura Behind Headline Text */
 @keyframes textAuraPulse {
   0%, 100% {
-    opacity: 0.55;
+    opacity: 0.45;
     transform: scale(0.95) translate(-50%, -50%);
   }
   50% {
-    opacity: 0.9;
+    opacity: 0.85;
     transform: scale(1.1) translate(-50%, -50%);
   }
 }
@@ -329,15 +372,24 @@ code, pre, .font-mono {
   transform: translate(-50%, -50%);
   background: radial-gradient(
     ellipse at center,
-    rgba(56, 189, 248, 0.3) 0%,
-    rgba(147, 51, 234, 0.25) 40%,
-    rgba(236, 72, 153, 0.15) 70%,
+    rgba(56, 189, 248, 0.25) 0%,
+    rgba(147, 51, 234, 0.2) 40%,
+    rgba(236, 72, 153, 0.1) 70%,
     transparent 100%
   );
   filter: blur(24px);
   z-index: -1;
   pointer-events: none;
   animation: textAuraPulse 5s ease-in-out infinite;
+}
+
+[data-theme="light"] .text-aurora-glow::before {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(2, 132, 199, 0.15) 0%,
+    rgba(99, 102, 241, 0.1) 40%,
+    transparent 100%
+  );
 }
 
 /* Animated Flowing Badge Background */
@@ -350,10 +402,10 @@ code, pre, .font-mono {
 .animate-badge-glow {
   background: linear-gradient(
     90deg,
-    rgba(56, 189, 248, 0.2),
-    rgba(129, 140, 248, 0.25),
-    rgba(192, 132, 252, 0.2),
-    rgba(56, 189, 248, 0.2)
+    rgba(56, 189, 248, 0.15),
+    rgba(129, 140, 248, 0.2),
+    rgba(192, 132, 252, 0.15),
+    rgba(56, 189, 248, 0.15)
   );
   background-size: 200% 200%;
   animation: badgeGradient 4s ease infinite;
