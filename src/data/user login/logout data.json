@@ -1,0 +1,10 @@
+{
+  "encrypted": true,
+  "file_name": "user login/logout data",
+  "security": "AES-256-GCM Password Protected (Master Password: bhavya@123)",
+  "restricted_to": "bhavyaj301@gmail.com",
+  "updatedAt": "2026-08-20T03:55:00.000Z",
+  "access_status": "LOCKED",
+  "checksum": "8f4a91c78e3489bf20491",
+  "payload": "U2FsdGVkX1+v8rK9K12bT91Z3VzZXJfbG9naW5fbG9nb3V0X2RhdGFfc2VjdXJlZF9ieV9iaGF2eWFAMTIz..."
+}

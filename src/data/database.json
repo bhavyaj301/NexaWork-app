@@ -1,0 +1,199 @@
+{
+  "version": "1.0.0",
+  "name": "NexaWork Local Project Database",
+  "updatedAt": "2026-08-21T04:39:12.418Z",
+  "users": [
+    {
+      "id": "admin_bhavya_mszl8qtn",
+      "name": "Bhavya Jain",
+      "email": "bhavyaj301@gmail.com",
+      "avatar": "https://api.dicebear.com/7.x/initials/svg?seed=Bhavya%20Jain",
+      "provider": "email",
+      "role": "admin",
+      "twoFactorEnabled": true,
+      "createdAt": "2026-08-19T04:25:11.628Z",
+      "lastLoginAt": "2026-08-20T03:56:46.397Z"
+    },
+    {
+      "id": "usr_g_htnv4l8",
+      "name": "User Google",
+      "email": "user.google@gmail.com",
+      "avatar": "https://api.dicebear.com/7.x/bottts/svg?seed=user.google%40gmail.com",
+      "provider": "google",
+      "twoFactorEnabled": false,
+      "createdAt": "2026-08-19T04:18:03.488Z",
+      "lastLoginAt": "2026-08-19T04:18:03.488Z"
+    }
+  ],
+  "audit_logs": [
+    {
+      "id": "log_iwhgrfimt2gmgwy",
+      "userId": "admin_bhavya_mszl8qtn",
+      "userEmail": "bhavyaj301@gmail.com",
+      "userName": "Bhavya Jain",
+      "event": "2FA_VERIFIED",
+      "provider": "email",
+      "status": "SUCCESS",
+      "ipAddress": "127.0.0.1",
+      "device": "Apple Mac / Desktop",
+      "browser": "Safari",
+      "timestamp": "2026-08-21T04:39:12.418Z",
+      "details": "Admin 2FA Security ENABLED"
+    },
+    {
+      "id": "log_l78cch8mt0zo1q6",
+      "userId": "admin_bhavya_mszl8qtn",
+      "userEmail": "bhavyaj301@gmail.com",
+      "userName": "Bhavya Jain",
+      "event": "LOGIN",
+      "provider": "google",
+      "status": "SUCCESS",
+      "ipAddress": "127.0.0.1",
+      "device": "Apple Mac / Desktop",
+      "browser": "Safari",
+      "timestamp": "2026-08-20T03:56:46.398Z",
+      "details": "Admin (bhavyaj301@gmail.com) authenticated via Google OAuth"
+    },
+    {
+      "id": "log_qk3j673mszlaikf",
+      "userId": "admin_bhavya_mszl8qtn",
+      "userEmail": "bhavyaj301@gmail.com",
+      "userName": "Bhavya Jain",
+      "event": "LOGOUT",
+      "provider": "email",
+      "status": "SUCCESS",
+      "ipAddress": "192.168.1.76",
+      "device": "Apple Mac / Desktop",
+      "browser": "Safari",
+      "timestamp": "2026-08-19T04:26:34.239Z",
+      "details": "Admin signed out (bhavyaj301@gmail.com)"
+    },
+    {
+      "id": "log_89y0r4smszl8qto",
+      "userId": "admin_bhavya_mszl8qtn",
+      "userEmail": "bhavyaj301@gmail.com",
+      "userName": "Bhavya Jain",
+      "event": "LOGIN",
+      "provider": "email",
+      "status": "SUCCESS",
+      "ipAddress": "192.168.1.93",
+      "device": "Apple Mac / Desktop",
+      "browser": "Safari",
+      "timestamp": "2026-08-19T04:25:11.628Z",
+      "details": "Admin credentials verified successfully (bhavyaj301@gmail.com)"
+    },
+    {
+      "id": "log_7n4r5icmszl8qto",
+      "userId": "admin_bhavya_mszl8qtn",
+      "userEmail": "bhavyaj301@gmail.com",
+      "userName": "Bhavya Jain",
+      "event": "SIGNUP",
+      "provider": "email",
+      "status": "SUCCESS",
+      "ipAddress": "192.168.1.163",
+      "device": "Apple Mac / Desktop",
+      "browser": "Safari",
+      "timestamp": "2026-08-19T04:25:11.628Z",
+      "details": "Exclusive Admin Account registered (bhavyaj301@gmail.com)"
+    },
+    {
+      "id": "log_t54e9numszkznmb",
+      "userId": "usr_g_htnv4l8",
+      "userEmail": "user.google@gmail.com",
+      "userName": "User Google",
+      "event": "LOGOUT",
+      "provider": "google",
+      "status": "SUCCESS",
+      "ipAddress": "192.168.1.103",
+      "device": "Apple Mac / Desktop",
+      "browser": "Safari",
+      "timestamp": "2026-08-19T04:18:07.571Z",
+      "details": "User signed out from web session"
+    },
+    {
+      "id": "log_wywdsd8mszkzkgw",
+      "userId": "usr_g_htnv4l8",
+      "userEmail": "user.google@gmail.com",
+      "userName": "User Google",
+      "event": "LOGIN",
+      "provider": "google",
+      "status": "SUCCESS",
+      "ipAddress": "192.168.1.10",
+      "device": "Apple Mac / Desktop",
+      "browser": "Safari",
+      "timestamp": "2026-08-19T04:18:03.488Z",
+      "details": "User logged in via Google OAuth"
+    },
+    {
+      "id": "log_6oeclcrmszkzkgw",
+      "userId": "usr_g_htnv4l8",
+      "userEmail": "user.google@gmail.com",
+      "userName": "User Google",
+      "event": "SIGNUP",
+      "provider": "google",
+      "status": "SUCCESS",
+      "ipAddress": "192.168.1.82",
+      "device": "Apple Mac / Desktop",
+      "browser": "Safari",
+      "timestamp": "2026-08-19T04:18:03.488Z",
+      "details": "New user registered via Google Sign-In"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "mail_le2xx2h",
+      "recipientEmail": "bhavyaj301@gmail.com",
+      "recipientName": "Bhavya Jain",
+      "subject": "🔑 749102 is your NexaWork Two-Step Verification code",
+      "category": "2FA_CODE",
+      "body": "Hi Bhavya Jain,\n\nHere is your one-time verification code to complete your login to NexaWork AI:\n\n🔐 Verification Code: 749102\n\nThis code expires in 10 minutes. Never share this code with anyone.\n\nNexaWork Security Team",
+      "sentAt": "2026-08-21T04:39:12.418Z",
+      "isRead": false,
+      "status": "DELIVERED"
+    },
+    {
+      "id": "mail_6pv61tg",
+      "recipientEmail": "bhavyaj301@gmail.com",
+      "recipientName": "Bhavya Jain",
+      "subject": "🔒 Security Alert: New Login to your NexaWork account (Admin Google Sign-In)",
+      "category": "SECURITY",
+      "body": "Hi Bhavya Jain,\n\nWe detected a successful login to your NexaWork AI account via Admin Google Sign-In on 20/8/2026 at 09:26 AM.\n\nDevice: macOS / Chrome\nStatus: Verified\n\nIf this was you, you can safely ignore this email. If you did not initiate this login, please enable Two-Step Verification immediately.\n\nNexaWork Security Center",
+      "sentAt": "2026-08-20T03:56:46.399Z",
+      "isRead": false,
+      "status": "DELIVERED"
+    },
+    {
+      "id": "mail_0d72zun",
+      "recipientEmail": "bhavyaj301@gmail.com",
+      "recipientName": "Bhavya Jain",
+      "subject": "🔒 Security Alert: New Login to your NexaWork account (Admin Password Login)",
+      "category": "SECURITY",
+      "body": "Hi Bhavya Jain,\n\nWe detected a successful login to your NexaWork AI account via Admin Password Login on 19/8/2026 at 09:55 AM.\n\nDevice: macOS / Chrome\nStatus: Verified\n\nIf this was you, you can safely ignore this email. If you did not initiate this login, please enable Two-Step Verification immediately.\n\nNexaWork Security Center",
+      "sentAt": "2026-08-19T04:25:11.628Z",
+      "isRead": false,
+      "status": "DELIVERED"
+    },
+    {
+      "id": "mail_rdt23xs",
+      "recipientEmail": "user.google@gmail.com",
+      "recipientName": "User Google",
+      "subject": "🔒 Security Alert: New Login to your NexaWork account (Google Sign-In)",
+      "category": "SECURITY",
+      "body": "Hi User Google,\n\nWe detected a successful login to your NexaWork AI account via Google Sign-In on 19/8/2026 at 09:48 AM.\n\nDevice: macOS / Chrome\nStatus: Verified\n\nIf this was you, you can safely ignore this email. If you did not initiate this login, please enable Two-Step Verification immediately.\n\nNexaWork Security Center",
+      "sentAt": "2026-08-19T04:18:03.489Z",
+      "isRead": false,
+      "status": "DELIVERED"
+    },
+    {
+      "id": "mail_7kqyf2w",
+      "recipientEmail": "user.google@gmail.com",
+      "recipientName": "User Google",
+      "subject": "🎉 Welcome to NexaWork AI - Your Cloud Career Intelligence Platform",
+      "category": "WELCOME",
+      "body": "Hi User Google,\n\nWelcome to NexaWork AI! Your account is active. You can now track real-time hiring trends across 2.48M+ job postings, run Azure compensation simulations, and build personalized 12-week roadmaps.\n\nEnjoy full access to our intelligence suite.\n\nBest regards,\nThe NexaWork Team",
+      "sentAt": "2026-08-19T04:18:03.488Z",
+      "isRead": false,
+      "status": "DELIVERED"
+    }
+  ]
+}

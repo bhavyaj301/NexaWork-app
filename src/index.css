@@ -1,0 +1,522 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* ── Light Mode Tokens ───────────────────────────────── */
+    --bg-main: #f8fafc;
+    --bg-surface: #ffffff;
+    --bg-surface-subtle: #f1f5f9;
+    --bg-surface-hover: #e2e8f0;
+    --border-color: #e2e8f0;
+    --border-hover: #cbd5e1;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #94a3b8;
+    --azure-blue: #0078d4;
+    --azure-glow: rgba(0, 120, 212, 0.12);
+    --azure-glass: rgba(255, 255, 255, 0.85);
+    --card-gradient: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(248, 250, 252, 1) 100%);
+  }
+
+  [data-theme="dark"] {
+    /* ── Dark Mode Tokens (Slate / Azure theme) ──────────── */
+    --bg-main: #0b0f19;
+    --bg-surface: #111827;
+    --bg-surface-subtle: #1e293b;
+    --bg-surface-hover: #334155;
+    --border-color: #1e293b;
+    --border-hover: #334155;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --azure-blue: #0078d4;
+    --azure-glow: rgba(0, 120, 212, 0.25);
+    --azure-glass: rgba(17, 24, 39, 0.85);
+    --card-gradient: linear-gradient(180deg, rgba(30, 41, 59, 0.5) 0%, rgba(17, 24, 39, 0.8) 100%);
+  }
+
+  [data-theme="midnight"] {
+    /* ── Midnight Mode Tokens (Pitch black with deep indigo) ── */
+    --bg-main: #020617;
+    --bg-surface: #0f172a;
+    --bg-surface-subtle: #1e1b4b;
+    --bg-surface-hover: #312e81;
+    --border-color: #1e1b4b;
+    --border-hover: #3730a3;
+    --text-primary: #f8fafc;
+    --text-secondary: #a5b4fc;
+    --text-muted: #6366f1;
+    --azure-blue: #4f46e5;
+    --azure-glow: rgba(99, 102, 241, 0.3);
+    --azure-glass: rgba(15, 23, 42, 0.9);
+    --card-gradient: linear-gradient(180deg, rgba(30, 27, 75, 0.4) 0%, rgba(15, 23, 42, 0.8) 100%);
+  }
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* ── Centering & Spacing System ────────────────────────────── */
+.page-section {
+  width: 100%;
+  padding-left: clamp(1.25rem, 5vw, 4rem);
+  padding-right: clamp(1.25rem, 5vw, 4rem);
+}
+
+.page-col {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Ensure sticky navbar never clips dropdown children */
+nav.sticky {
+  overflow: visible !important;
+}
+
+code, pre, .font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Defined SaaS Cards */
+.saas-card {
+  background: var(--bg-surface);
+  background-image: var(--card-gradient);
+  border: 1px solid var(--border-color);
+  border-radius: 1.25rem;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.saas-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: 0 12px 36px -4px var(--azure-glow);
+  transform: translateY(-3px);
+}
+
+.saas-card-subtle {
+  background: var(--bg-surface-subtle);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+}
+
+.saas-hero-mockup {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.azure-glass {
+  background: var(--azure-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+}
+
+.azure-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: rgba(0, 120, 212, 0.1);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.25);
+}
+
+.azure-btn-primary {
+  background: linear-gradient(135deg, #0078d4 0%, #005a9e 100%);
+  color: #ffffff;
+  font-weight: 700;
+  border-radius: 0.75rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px 0 rgba(0, 120, 212, 0.35);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.azure-btn-primary:hover {
+  background: linear-gradient(135deg, #1084d8 0%, #0063af 100%);
+  box-shadow: 0 6px 20px 0 rgba(0, 120, 212, 0.5);
+  transform: translateY(-1px);
+}
+
+.azure-btn-secondary {
+  background: var(--bg-surface-subtle);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  font-weight: 600;
+  border-radius: 0.75rem;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.azure-btn-secondary:hover {
+  background: var(--bg-surface-hover);
+  border-color: var(--border-hover);
+  color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+/* Pulsing live dot */
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #10b981;
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  animation: pulse 1.8s infinite cubic-bezier(0.66, 0, 0, 1);
+}
+
+@keyframes pulse {
+  to {
+    box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+  }
+}
+
+/* ═════════════════════════════════════════════════════════════════════
+   ANTIGRAVITY COSMIC & LIVING AMBIENCE ANIMATIONS
+   ═════════════════════════════════════════════════════════════════════ */
+
+/* Anti-gravity Floating 3D Physics */
+@keyframes antigravityFloat {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate(0.4deg);
+  }
+  50% {
+    transform: translateY(-16px) rotate(-0.3deg);
+  }
+  75% {
+    transform: translateY(-7px) rotate(0.2deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+.animate-antigravity {
+  animation: antigravityFloat 7s ease-in-out infinite;
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) scale(1) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-24px) scale(1.1) rotate(180deg);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 14s ease-in-out infinite;
+}
+
+/* Cosmic Pulsing Glow */
+@keyframes cosmicGlow {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scale(1.2) rotate(180deg);
+  }
+}
+
+.animate-cosmic-glow {
+  animation: cosmicGlow 10s ease-in-out infinite;
+}
+
+/* Pulsing Atmospheric Aurora Wave Ribbon Animation */
+@keyframes auroraMove {
+  0% {
+    background-position: 0% 50%;
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    background-position: 100% 50%;
+    transform: rotate(180deg) scale(1.15);
+  }
+  100% {
+    background-position: 0% 50%;
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+.animate-aurora-wave {
+  background: linear-gradient(
+    -45deg,
+    rgba(0, 120, 212, 0.18),
+    rgba(147, 51, 234, 0.18),
+    rgba(56, 189, 248, 0.15),
+    rgba(16, 185, 129, 0.12),
+    rgba(236, 72, 153, 0.12)
+  );
+  background-size: 300% 300%;
+  animation: auroraMove 18s ease infinite;
+}
+
+/* Glowing Border Beam / Shimmer */
+@keyframes beamRotate {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.antigravity-gradient-border {
+  position: relative;
+  background-clip: padding-box;
+}
+
+.antigravity-gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: -1.5px;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #0078d4, #38bdf8, #818cf8, #a855f7, #ec4899, #38bdf8, #0078d4);
+  background-size: 300% 300%;
+  animation: beamRotate 6s linear infinite;
+  z-index: -1;
+  opacity: 0.8;
+}
+
+/* Grid Matrix Background Effect with animated scanline pulse */
+@keyframes matrixPulse {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.65; }
+}
+
+.antigravity-grid {
+  background-size: 44px 44px;
+  background-image: 
+    linear-gradient(to right, rgba(56, 189, 248, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.07) 1px, transparent 1px);
+  animation: matrixPulse 8s ease-in-out infinite;
+}
+
+[data-theme="light"] .antigravity-grid {
+  background-image: 
+    linear-gradient(to right, rgba(0, 120, 212, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 120, 212, 0.08) 1px, transparent 1px);
+}
+
+/* Glowing Rotating Cyber Light Beam */
+@keyframes cyberBeam {
+  0% { transform: translateY(-100%) rotate(35deg); opacity: 0; }
+  20% { opacity: 0.6; }
+  80% { opacity: 0.6; }
+  100% { transform: translateY(200%) rotate(35deg); opacity: 0; }
+}
+
+.animate-cyber-beam {
+  animation: cyberBeam 9s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* ═════════════════════════════════════════════════════════════════════
+   TEXT BACKGROUND ANIMATIONS & GLOW EFFECTS
+   ═════════════════════════════════════════════════════════════════════ */
+
+/* Shimmering Animated Text Gradient */
+@keyframes textShimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-text-shimmer {
+  background: linear-gradient(
+    90deg,
+    #38bdf8 0%,
+    #818cf8 20%,
+    #c084fc 40%,
+    #ec4899 60%,
+    #38bdf8 80%,
+    #34d399 100%
+  );
+  background-size: 250% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: textShimmer 4.5s ease-in-out infinite;
+  display: inline-block;
+  text-shadow: 0 0 24px rgba(56, 189, 248, 0.35);
+}
+
+/* Ambient Moving Aurora Aura Behind Headline Text */
+@keyframes textAuraPulse {
+  0%, 100% {
+    opacity: 0.45;
+    transform: scale(0.95) translate(-50%, -50%);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.1) translate(-50%, -50%);
+  }
+}
+
+.text-aurora-glow {
+  position: relative;
+  display: inline-block;
+}
+
+.text-aurora-glow::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 140%;
+  height: 140%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(56, 189, 248, 0.25) 0%,
+    rgba(147, 51, 234, 0.2) 40%,
+    rgba(236, 72, 153, 0.1) 70%,
+    transparent 100%
+  );
+  filter: blur(28px);
+  z-index: -1;
+  pointer-events: none;
+  animation: textAuraPulse 6s ease-in-out infinite;
+}
+
+/* Animated Flowing Badge Background */
+@keyframes badgeGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-badge-glow {
+  background: linear-gradient(
+    90deg,
+    rgba(56, 189, 248, 0.15),
+    rgba(129, 140, 248, 0.2),
+    rgba(192, 132, 252, 0.18),
+    rgba(56, 189, 248, 0.15)
+  );
+  background-size: 200% 200%;
+  animation: badgeGradient 4s ease infinite;
+}
+
+/* Neon Text Glow */
+.text-neon-cyan {
+  color: #38bdf8;
+  text-shadow: 0 0 16px rgba(56, 189, 248, 0.45);
+}
+
+.text-neon-purple {
+  color: #c084fc;
+  text-shadow: 0 0 16px rgba(192, 132, 252, 0.45);
+}
+
+.text-neon-emerald {
+  color: #34d399;
+  text-shadow: 0 0 16px rgba(52, 211, 153, 0.45);
+}
+
+/* Interactive Card Hover Glow Pulse */
+.interactive-glow-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.interactive-glow-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.interactive-glow-card:hover::after {
+  opacity: 1;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-down {
+  animation: slideDown 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
