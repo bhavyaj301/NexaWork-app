@@ -254,71 +254,95 @@ export const SaaSNavbar: React.FC<SaaSNavbarProps> = ({
           {/* ── Single Line Sign In & Sign Up (or User Profile) ── */}
           {currentUser ? (
             <div className="relative" ref={userMenuRef}>
-              <button
-                onClick={() => setUserDropdownOpen(!userDropdownOpen)}
-                className="flex items-center gap-2 p-1.5 sm:px-3 sm:py-1.5 rounded-xl bg-[var(--bg-surface-subtle)] hover:bg-[var(--bg-surface-hover)] border border-[var(--border-color)] transition group shrink-0 whitespace-nowrap"
-              >
-                <img
-                  src={currentUser.avatar || `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(currentUser.name)}`}
-                  alt={currentUser.name}
-                  className="w-7 h-7 rounded-lg object-cover bg-blue-500/20"
-                />
-                <div className="hidden lg:flex flex-col text-left leading-none">
-                  <span className="text-xs font-bold text-[var(--text-primary)] max-w-[100px] truncate">
-                    {currentUser.name}
-                  </span>
-                  <span className="text-[10px] text-sky-400 capitalize font-medium">
-                    {currentUser.provider === 'google' ? 'Google' : 'Verified'}
-                  </span>
-                </div>
-                <ChevronDown className="w-3.5 h-3.5 text-[var(--text-muted)] group-hover:text-sky-400 transition" />
-              </button>
+              {(() => {
+                const isAdmin = currentUser.role === 'admin' || currentUser.email.toLowerCase() === 'bhavyaj301@gmail.com';
+                return (
+                  <>
+                    <button
+                      onClick={() => setUserDropdownOpen(!userDropdownOpen)}
+                      className="flex items-center gap-2 p-1.5 sm:px-3 sm:py-1.5 rounded-xl bg-[var(--bg-surface-subtle)] hover:bg-[var(--bg-surface-hover)] border border-[var(--border-color)] transition group shrink-0 whitespace-nowrap"
+                    >
+                      <img
+                        src={currentUser.avatar || `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(currentUser.name)}`}
+                        alt={currentUser.name}
+                        className="w-7 h-7 rounded-lg object-cover bg-blue-500/20"
+                      />
+                      <div className="hidden lg:flex flex-col text-left leading-none">
+                        <div className="flex items-center gap-1.5">
+                          <span className="text-xs font-bold text-[var(--text-primary)] max-w-[100px] truncate">
+                            {currentUser.name}
+                          </span>
+                          {isAdmin && (
+                            <span className="text-[9px] font-black uppercase px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-400 border border-amber-500/30">
+                              Admin
+                            </span>
+                          )}
+                        </div>
+                        <span className="text-[10px] text-[var(--text-muted)] capitalize font-medium mt-0.5">
+                          {isAdmin ? 'Master Administrator' : 'Standard Member'}
+                        </span>
+                      </div>
+                      <ChevronDown className="w-3.5 h-3.5 text-[var(--text-muted)] group-hover:text-sky-400 transition" />
+                    </button>
 
-              {/* User Dropdown */}
-              {userDropdownOpen && (
-                <div
-                  className="absolute right-0 top-[calc(100%+8px)] w-60 rounded-2xl p-2.5 shadow-2xl border border-[var(--border-color)] animate-slide-down space-y-1"
-                  style={{ zIndex: 9999, background: 'var(--bg-surface)' }}
-                >
-                  <div className="p-2.5 border-b border-[var(--border-color)] mb-1">
-                    <p className="text-xs font-bold text-[var(--text-primary)]">{currentUser.name}</p>
-                    <p className="text-[11px] text-[var(--text-muted)] truncate">{currentUser.email}</p>
-                  </div>
+                    {/* User Dropdown */}
+                    {userDropdownOpen && (
+                      <div
+                        className="absolute right-0 top-[calc(100%+8px)] w-64 rounded-2xl p-2.5 shadow-2xl border border-[var(--border-color)] animate-slide-down space-y-1"
+                        style={{ zIndex: 9999, background: 'var(--bg-surface)' }}
+                      >
+                        <div className="p-2.5 border-b border-[var(--border-color)] mb-1">
+                          <div className="flex items-center justify-between gap-2">
+                            <p className="text-xs font-bold text-[var(--text-primary)] truncate">{currentUser.name}</p>
+                            <span className={`text-[9px] font-black uppercase px-1.5 py-0.5 rounded border ${
+                              isAdmin
+                                ? 'bg-amber-500/20 text-amber-300 border-amber-500/30'
+                                : 'bg-blue-500/10 text-sky-400 border-blue-500/20'
+                            }`}>
+                              {isAdmin ? 'Admin' : 'User'}
+                            </span>
+                          </div>
+                          <p className="text-[11px] text-[var(--text-muted)] truncate mt-0.5">{currentUser.email}</p>
+                        </div>
 
-                  <button
-                    onClick={() => { onOpen2FASetup(); setUserDropdownOpen(false); }}
-                    className="w-full text-left px-3 py-2 rounded-xl text-xs font-semibold text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface-hover)] flex items-center justify-between transition"
-                  >
-                    <div className="flex items-center gap-2">
-                      <ShieldCheck className="w-4 h-4 text-purple-400" />
-                      <span>Two-Step Verification</span>
-                    </div>
-                    {currentUser.twoFactorEnabled && (
-                      <span className="text-[10px] text-emerald-400 font-bold">ON</span>
+                        <button
+                          onClick={() => { onOpen2FASetup(); setUserDropdownOpen(false); }}
+                          className="w-full text-left px-3 py-2 rounded-xl text-xs font-semibold text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface-hover)] flex items-center justify-between transition"
+                        >
+                          <div className="flex items-center gap-2">
+                            <ShieldCheck className="w-4 h-4 text-purple-400" />
+                            <span>Two-Step Verification</span>
+                          </div>
+                          {currentUser.twoFactorEnabled && (
+                            <span className="text-[10px] text-emerald-400 font-bold">ON</span>
+                          )}
+                        </button>
+
+                        {/* Admin Exclusive: User Login/Logout Logs */}
+                        {isAdmin && onOpenUserDataLogs && (
+                          <button
+                            onClick={() => { onOpenUserDataLogs(); setUserDropdownOpen(false); }}
+                            className="w-full text-left px-3 py-2 rounded-xl text-xs font-semibold text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface-hover)] flex items-center gap-2 transition"
+                          >
+                            <KeyRound className="w-4 h-4 text-amber-400" />
+                            <span>User Login/Logout Data</span>
+                          </button>
+                        )}
+
+                        <div className="pt-1 border-t border-[var(--border-color)]">
+                          <button
+                            onClick={() => { onSignOut(); setUserDropdownOpen(false); }}
+                            className="w-full text-left px-3 py-2 rounded-xl text-xs font-bold text-rose-400 hover:bg-rose-500/10 flex items-center gap-2 transition"
+                          >
+                            <LogOut className="w-4 h-4" />
+                            <span>Sign Out</span>
+                          </button>
+                        </div>
+                      </div>
                     )}
-                  </button>
-
-                  {onOpenUserDataLogs && (
-                    <button
-                      onClick={() => { onOpenUserDataLogs(); setUserDropdownOpen(false); }}
-                      className="w-full text-left px-3 py-2 rounded-xl text-xs font-semibold text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface-hover)] flex items-center gap-2 transition"
-                    >
-                      <KeyRound className="w-4 h-4 text-amber-400" />
-                      <span>User Login/Logout Data</span>
-                    </button>
-                  )}
-
-                  <div className="pt-1 border-t border-[var(--border-color)]">
-                    <button
-                      onClick={() => { onSignOut(); setUserDropdownOpen(false); }}
-                      className="w-full text-left px-3 py-2 rounded-xl text-xs font-bold text-rose-400 hover:bg-rose-500/10 flex items-center gap-2 transition"
-                    >
-                      <LogOut className="w-4 h-4" />
-                      <span>Sign Out</span>
-                    </button>
-                  </div>
-                </div>
-              )}
+                  </>
+                );
+              })()}
             </div>
           ) : (
             <div className="flex items-center gap-2 shrink-0 whitespace-nowrap">
@@ -412,6 +436,13 @@ export const SaaSNavbar: React.FC<SaaSNavbarProps> = ({
               <button onClick={() => { onOpen2FASetup(); setMobileMenuOpen(false); }}
                 className="flex items-center gap-3 w-full text-left px-4 py-2.5 rounded-xl text-sm font-bold text-purple-400 hover:bg-[var(--bg-surface-hover)] transition">
                 <ShieldCheck className="w-4 h-4" /> Two-Step Verification (2FA)
+              </button>
+            )}
+
+            {currentUser && (currentUser.role === 'admin' || currentUser.email.toLowerCase() === 'bhavyaj301@gmail.com') && onOpenUserDataLogs && (
+              <button onClick={() => { onOpenUserDataLogs(); setMobileMenuOpen(false); }}
+                className="flex items-center gap-3 w-full text-left px-4 py-2.5 rounded-xl text-sm font-bold text-amber-400 hover:bg-[var(--bg-surface-hover)] transition">
+                <KeyRound className="w-4 h-4" /> User Login/Logout Data
               </button>
             )}
 

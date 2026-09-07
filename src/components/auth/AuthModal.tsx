@@ -78,7 +78,13 @@ export const AuthModal: React.FC<AuthModalProps> = ({
 
     setLoading(true);
     try {
-      const res = await authService.signInWithEmail(email, password);
+      let res;
+      if (mode === 'signup') {
+        res = await authService.signUpWithEmail(name, email, password);
+      } else {
+        res = await authService.signInWithEmail(email, password);
+      }
+
       if (res.requires2FA) {
         setMode('2fa');
       } else if (res.success) {
