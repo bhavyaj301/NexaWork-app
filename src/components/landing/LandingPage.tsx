@@ -78,20 +78,20 @@ export const LandingPage: React.FC<LandingPageProps> = ({
 
           {/* Shimmering Animated Headline with Glowing Aurora Aura Background */}
           <h1 className="text-3xl sm:text-5xl lg:text-[3.6rem] font-extrabold text-[var(--text-primary)] tracking-tight leading-tight max-w-4xl mx-auto mb-4 drop-shadow-md relative">
-            <span className="relative z-10">Microsoft Azure Labor Market Intelligence</span>
+            <span className="relative z-10">Predictive Job Market Intelligence</span>
             <br />
             <span className="relative z-10">for the </span>
             <span className="text-aurora-glow relative z-10">
               <span className="animate-text-shimmer drop-shadow-xl font-black">
-                Enterprise Cloud Era
+                Modern Tech Era
               </span>
             </span>
           </h1>
 
           {/* Subheading */}
           <p className="text-sm sm:text-base text-[var(--text-secondary)] max-w-xl mx-auto leading-relaxed mb-8">
-            Analyze 2.48M+ verified Microsoft Azure cloud postings in real-time. Benchmark compensation,
-            diagnose resume skill gaps for AZ-305/AI-102, and generate customized career roadmaps.
+            Analyze 2.48M+ verified technology job postings in real-time. Benchmark compensation,
+            diagnose resume skill gaps, and generate customized 12-week career pathways with NexaWork AI.
           </p>
 
           {/* Action CTAs with Hover Lift */}

@@ -113,18 +113,18 @@ export const SaaSNavbar: React.FC<SaaSNavbarProps> = ({
     >
       <div className="w-full h-16 flex items-center justify-between px-4 sm:px-8 lg:px-12 xl:px-16">
 
-        {/* ── LEFT: Clean Azure Brand Logo ── */}
+        {/* ── LEFT: Clean NexaWork Brand Logo ── */}
         <div className="shrink-0 flex items-center">
           <button onClick={onNavigateLanding} className="flex items-center gap-3 group">
             <div className="w-9 h-9 rounded-xl overflow-hidden shadow-md shadow-blue-500/25 group-hover:scale-105 transition-transform shrink-0">
-              <img src="/logo.jpg" alt="Azure TalentPulse logo" className="w-full h-full object-cover" />
+              <img src="/logo.jpg" alt="NexaWork logo" className="w-full h-full object-cover" />
             </div>
             <div className="flex flex-col leading-none text-left">
               <span className="text-base font-extrabold text-[var(--text-primary)] tracking-tight">
-                Azure<span className="text-sky-400">TalentPulse</span>
+                Nexa<span className="text-sky-400">Work</span>
               </span>
               <span className="hidden sm:block text-[11px] text-[var(--text-muted)] font-medium mt-0.5">
-                Microsoft Cloud Intelligence
+                AI Labor Market Intelligence
               </span>
             </div>
           </button>
