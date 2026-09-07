@@ -34,6 +34,10 @@ export const App: React.FC = () => {
   useEffect(() => {
     const unsub = authService.onAuthStateChanged((user) => {
       setCurrentUser(user);
+      if (user && (user.role === 'admin' || user.email.toLowerCase() === 'bhavyaj301@gmail.com')) {
+        // Admin gets full enterprise permissions across all services
+        setCurrentSubscription('enterprise');
+      }
     });
     return unsub;
   }, []);
@@ -82,6 +86,12 @@ export const App: React.FC = () => {
   };
 
   const handleAuthSuccess = () => {
+    // If Admin logs in, show logs modal immediately
+    if (authService.isAdmin()) {
+      setUserDataLogsOpen(true);
+      setCurrentSubscription('enterprise');
+    }
+
     if (pendingServiceAfterAuth) {
       setActiveService(pendingServiceAfterAuth);
       setCurrentView('services');

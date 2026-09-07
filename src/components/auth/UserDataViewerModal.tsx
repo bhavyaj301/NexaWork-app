@@ -16,7 +16,7 @@ import {
   Globe
 } from 'lucide-react';
 import { dbService } from '../../services/dbService';
-import { EXCLUSIVE_ADMIN_PASSWORD, EXCLUSIVE_ADMIN_EMAIL } from '../../services/authService';
+import { authService, EXCLUSIVE_ADMIN_PASSWORD, EXCLUSIVE_ADMIN_EMAIL } from '../../services/authService';
 import { AuditLog } from '../../types/auth';
 
 interface UserDataViewerModalProps {
@@ -25,17 +25,25 @@ interface UserDataViewerModalProps {
 }
 
 export const UserDataViewerModal: React.FC<UserDataViewerModalProps> = ({ isOpen, onClose }) => {
-  const [unlocked, setUnlocked] = useState(false);
+  const isUserAdmin = authService.isAdmin();
+  const [unlocked, setUnlocked] = useState(isUserAdmin);
   const [passwordInput, setPasswordInput] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [eventFilter, setEventFilter] = useState<string>('ALL');
 
+  // Keep unlocked true if logged in as Admin
+  React.useEffect(() => {
+    if (isUserAdmin) {
+      setUnlocked(true);
+    }
+  }, [isUserAdmin, isOpen]);
+
   if (!isOpen) return null;
 
   const handleUnlock = (e: React.FormEvent) => {
     e.preventDefault();
-    if (passwordInput === EXCLUSIVE_ADMIN_PASSWORD) {
+    if (passwordInput === EXCLUSIVE_ADMIN_PASSWORD || isUserAdmin) {
       setUnlocked(true);
       setError(null);
     } else {
